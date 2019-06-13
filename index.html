@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Algoritmo de Luhn</title>
+</head>
+<body>
+    <script>
+
+      let number = prompt('Digita número de la tarjeta de crédito')
+
+      //1. validar campo de entrada
+      const validarCampo = (number) => {
+        if(!(typeof number === 'string' && number.length <= 30 
+            && number.split('').map(Number).every(n => !isNaN(n))
+          )){
+            alert('No valido, por favor verifica el número nuevamente')
+            return
+        } else {            
+            //Solución de algoritmo
+            luhn(number)
+        }
+      }
+
+      //2. algoritmo solución
+      const luhn = (number) => {
+        //retiro espacios en blanco y lo convierto en un array e invierto valores
+        let spaces = number.trim().replace(/ /g, "")
+        let numberValid = spaces.split('').reverse()
+
+        let multiplicarPar = numberValid.map((number, index) => {
+          if(index % 2 == 1) { number *= 2 }
+          if(index % 2 == 0) { number *= 1 }
+          if(number > 9) { number -= 9 }
+          return number
+        })
+
+        //total
+        let total = multiplicarPar.reduce((prev, next) => {
+          return prev + next
+        })
+
+        if((total % 10) == 0) {
+          alert('Número valido')
+          console.log('Número valido')
+        } else {
+          alert('Número invalido, verifica')
+          console.log('Número invalido')
+        }
+      }
+
+      //llamada de función principal
+      validarCampo(number)
+    
+    </script>
+</body>
+</html>
