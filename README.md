@@ -8,7 +8,7 @@
 
 ![](https://i0.wp.com/www.pcihispano.com/contenido/uploads/2017/08/PAN_valido_luhn.png?resize=1024%2C383&ssl=1)
 
-#### Ejemplo - Número de targeta invalido
+#### Ejemplo - Número de tarjeta invalido
 
 ![](https://i1.wp.com/www.pcihispano.com/contenido/uploads/2017/08/PAN_invalido.png?resize=1024%2C388&ssl=1)
 
